@@ -13,6 +13,10 @@ class PostsController extends Controller
         // dd($posts->toArray());
         // return view('posts.index',['posts'=>$posts]);
         return view('posts.index')->with('posts',$posts);
+    }
 
+    public function show($id){
+        $post =Post::findOrFail($id);
+        return view('posts.show')->with('post',$post);
     }
 }
