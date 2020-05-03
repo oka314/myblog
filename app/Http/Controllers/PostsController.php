@@ -24,6 +24,7 @@ class PostsController extends Controller
     public function create(){
         return view('posts.create');
     }
+
     public function store(Request $request) {
         $this->validate($request,[
             'title'=>'required|min:3',
@@ -35,4 +36,9 @@ class PostsController extends Controller
         $post->save();
         return redirect('/');
       }
+
+      public function edit(Post $post){
+        return view('posts.edit')->with('post',$post);
+    }
+
 }
